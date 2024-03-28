@@ -1,0 +1,14 @@
+apiVersion: tests.mkurleto.io/v1alpha1
+kind: TestRun
+metadata:
+  labels:
+    app.kubernetes.io/name: testrun
+    app.kubernetes.io/instance: testrun-sample
+    app.kubernetes.io/part-of: test-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: test-operator
+  name: testrun-sample
+spec:
+  testRef:
+    name: test-sample
+    namespace: test-operator-system

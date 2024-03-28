@@ -1,0 +1,22 @@
+apiVersion: tests.mkurleto.io/v1alpha1
+kind: Test
+metadata:
+  labels:
+    app.kubernetes.io/name: test
+    app.kubernetes.io/instance: test-sample
+    app.kubernetes.io/part-of: test-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: test-operator
+  name: test-sample
+spec:
+  jobTemplate:
+    template:
+      spec:
+        containers:
+        - name: busybox
+          image: busybox:latest
+          command:
+          - sh
+          - -c
+          - echo "Hello, World!"
+        restartPolicy: Never

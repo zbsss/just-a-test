@@ -1,0 +1,47 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - tests.mkurleto.io
+  resources:
+  - testruns
+  - tests
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - tests.mkurleto.io
+  resources:
+  - testruns/finalizers
+  - tests/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - tests.mkurleto.io
+  resources:
+  - testruns/status
+  - tests/status
+  verbs:
+  - get
+  - patch
+  - update
